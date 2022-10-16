@@ -25,21 +25,6 @@ for key in s3_client.list_objects(Bucket='fargate-airflow-logs')['Contents']:
     print(key['Key'])
 print("s3 initilized...")
 
-
-
-
-
-    s3_resource = boto3.resource(
-        's3',
-        
-
-    for bucket in s3_resource.buckets.all():
-        print(bucket.name)
-
-
-
-
-
 def print_hello():
     return 'Hello world from first Airflow DAG!'
 
