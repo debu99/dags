@@ -29,7 +29,7 @@ def print_hello():
     return 'Hello world from first Airflow DAG!'
 
 dag = DAG('hello_world', description='Hello World DAG',
-          schedule_interval='*/30 * * * *',
+          schedule_interval='30 12 * * *',
           start_date=datetime(2022, 10, 15), catchup=False)
 
 hello_operator = PythonOperator(task_id='hello_task', python_callable=print_hello, dag=dag)
