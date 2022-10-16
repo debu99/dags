@@ -5,7 +5,9 @@ from airflow.operators.python_operator import PythonOperator
 import boto3
 
 print("init s3...")
-s3 = boto3.client('s3', region_name='ap-southeast-1')
+s3_client = boto3.client('s3', region_name='ap-southeast-1')
+for key in s3_client.list_objects(Bucket='fargate-airflow-logs')['Contents']:
+    print(key['Key'])
 print("s3 initilized...")
 
 def print_hello():
