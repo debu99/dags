@@ -5,7 +5,7 @@ from airflow.operators.python_operator import PythonOperator
 import boto3
 
 print("init s3...")
-s3 = boto3.client('s3', region_name='ap-southeat-1')
+s3 = boto3.client('s3', region_name='ap-southeast-1')
 print("s3 initilized...")
 
 def print_hello():
