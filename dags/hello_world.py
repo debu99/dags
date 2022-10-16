@@ -7,12 +7,12 @@ import boto3, os
 print("init s3...")
 sts_client = boto3.client('sts')
 with open(os.getenv("AWS_WEB_IDENTITY_TOKEN_FILE")) as f:
-    web_token = f.readlines()
+    lines = f.readlines()
 response = sts_client.assume_role_with_web_identity(
     DurationSeconds=3600,
     RoleArn=os.getenv("AWS_ROLE_ARN"),
     RoleSessionName='dag',
-    WebIdentityToken=web_token
+    WebIdentityToken=lines[0]
 )
 credentials = response['Credentials']
 
